@@ -1,5 +1,6 @@
 package com.mikehans.d308vacationplanner;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         EditText editEndDate = findViewById(R.id.editTextEndDate);
         Button saveButton = findViewById(R.id.buttonSaveVacation);
         Button deleteButton = findViewById(R.id.buttonDeleteVacation);
+        Button viewDetailsButton = findViewById(R.id.buttonViewDetails);
 
         saveButton.setOnClickListener(v -> {
             String title = editTitle.getText().toString().trim();
@@ -69,6 +71,18 @@ public class MainActivity extends AppCompatActivity {
                     db.vacationDao().delete(vacationToDelete);
                     Toast.makeText(this, "Vacation deleted!", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        viewDetailsButton.setOnClickListener(v -> {
+            List<Vacation> vacations = db.vacationDao().getAllVacations();
+            if (!vacations.isEmpty()) {
+                Vacation vacationToSend = vacations.get(vacations.size() - 1); // MIKE - FIX THIS LATER - Pulling last vacation only
+                Intent intent = new Intent(MainActivity.this, VacationDetailActivity.class);
+                intent.putExtra("vacation", vacationToSend);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "No vacation data to view.", Toast.LENGTH_SHORT).show();
             }
         });
     }

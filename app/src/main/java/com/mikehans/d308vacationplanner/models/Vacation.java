@@ -3,8 +3,10 @@ package com.mikehans.d308vacationplanner.models;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "vacation_table")
-public class Vacation {
+public class Vacation implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
@@ -13,7 +15,7 @@ public class Vacation {
     private String endDate;
 
     // Constructor
-    public Vacation(String title, String hotel, String startDate, String endDate) {
+    public Vacation (String title, String hotel, String startDate, String endDate) {
         this.title = title;
         this.hotel = hotel;
         this.startDate = startDate;
