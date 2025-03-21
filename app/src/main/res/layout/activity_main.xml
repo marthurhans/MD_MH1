@@ -49,5 +49,12 @@
         android:layout_height="wrap_content"
         android:text="Save Vacation"/>
 
+    <Button
+        android:id="@+id/buttonDeleteVacation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Vacation"
+        android:layout_marginTop="16dp"/>
+
 </LinearLayout>
 
