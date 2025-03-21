@@ -51,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
             List<Vacation> vacations = db.vacationDao().getAllVacations();
             for (Vacation vac : vacations) {
-                Log.d("VACATION_DB", "Saved Vacation: " + vac.getTitle() +
-                        " at " + vac.getHotel());
+                Log.d("VACATION_DB", vac.toString());
             }
         });
 
