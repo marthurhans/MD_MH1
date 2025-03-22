@@ -5,31 +5,42 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textViewTitle"
+    <EditText
+        android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Title"
+        android:layout_height="48dp"
+        android:hint="Title"
+        android:inputType="text"
         android:paddingBottom="8dp" />
 
-    <TextView
-        android:id="@+id/textViewHotel"
+    <EditText
+        android:id="@+id/editTextHotel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hotel"
+        android:layout_height="48dp"
+        android:hint="Hotel"
+        android:inputType="text"
         android:paddingBottom="8dp" />
 
-    <TextView
-        android:id="@+id/textViewStartDate"
+    <EditText
+        android:id="@+id/editTextStartDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start Date"
+        android:layout_height="48dp"
+        android:hint="Start Date (YYYY-MM-DD)"
+        android:inputType="date"
         android:paddingBottom="8dp" />
 
-    <TextView
-        android:id="@+id/textViewEndDate"
+    <EditText
+        android:id="@+id/editTextEndDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="End Date"
+        android:layout_height="48dp"
+        android:hint="End Date (YYYY-MM-DD)"
+        android:inputType="date"
         android:paddingBottom="8dp" />
+
+    <Button
+        android:id="@+id/buttonSaveChanges"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Save Changes"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

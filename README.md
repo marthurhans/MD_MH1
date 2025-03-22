@@ -27,7 +27,8 @@ If you need additional support, please navigate to the course page and reach out
 Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
 
 ## Task-to-Commit Breakdown:
-- **Task B1a:** `ff04c5b` — Add vacation entry functionality
+- **Task B1a:** `ff04c5b` — add vacation entry functionality
 - **Task B1b:** `b4fd37b` — Task B1b: add delete button and block deletion logic if excursion exists
 - **Task B2:** `b4fd37b` — Task B2: verify existing vacation fields with toString and LogCat
 - **Task B3a:** `37cfd95` — Task B3a: add VacationDetailActivity for vacation details and navigation
+- **Task B3b:** `111111` — Task B3b: add vacation editing with update logic
