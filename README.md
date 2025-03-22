@@ -31,4 +31,5 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task B1b:** `b4fd37b` — Task B1b: add delete button and block deletion logic if excursion exists
 - **Task B2:** `b4fd37b` — Task B2: verify existing vacation fields with toString and LogCat
 - **Task B3a:** `37cfd95` — Task B3a: add VacationDetailActivity for vacation details and navigation
-- **Task B3b:** `111111` — Task B3b: add vacation editing with update logic
+- **Task B3b:** `2927683` — Task B3b: add vacation editing with update logic
+- **Task B3b:** `111111` — Task B3c: add date format validation for vacation input

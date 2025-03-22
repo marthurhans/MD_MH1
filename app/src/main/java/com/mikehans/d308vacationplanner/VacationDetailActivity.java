@@ -38,6 +38,12 @@ public class VacationDetailActivity extends AppCompatActivity {
                 String updatedStart = startInput.getText().toString().trim();
                 String updatedEnd = endInput.getText().toString().trim();
 
+                if (!isValidDate(updatedStart) || !isValidDate(updatedEnd)) {
+                    Toast.makeText(this, "Please enter dates in YYYY-MM-DD format.",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 vacation.setTitle(updatedTitle);
                 vacation.setHotel(updatedHotel);
                 vacation.setStartDate(updatedStart);
@@ -51,9 +57,14 @@ public class VacationDetailActivity extends AppCompatActivity {
                 db.vacationDao().update(vacation);
 
                 Toast.makeText(this, "Vacation updated!", Toast.LENGTH_SHORT).show();
-                finish(); // Return to MainActivity
+                finish();
             });
         }
     }
+
+    private boolean isValidDate(String date) {
+        return date.matches("\\d{4}-\\d{2}-\\d{2}");
+    }
+
 }
 

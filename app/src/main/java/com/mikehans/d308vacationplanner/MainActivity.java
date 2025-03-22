@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
             if (title.isEmpty() || hotel.isEmpty() || startDate.isEmpty() || endDate.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show();
+            } else if (!isValidDate(startDate) || !isValidDate(endDate)) {
+                Toast.makeText(this, "Please enter dates in YYYY-MM-DD format.", Toast.LENGTH_SHORT).show();
             } else {
                 Vacation vacation = new Vacation(title, hotel, startDate, endDate);
                 db.vacationDao().insert(vacation);
@@ -97,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
     // MIKE - FIX THIS LATER - Excursion always 'false' (to currently allow vacation deletions)
     private boolean hasExcursions(Vacation vacation) {
         return false;
+    }
+
+    private boolean isValidDate(String date) {
+        return date.matches("\\d{4}-\\d{2}-\\d{2}");
     }
 }
 
