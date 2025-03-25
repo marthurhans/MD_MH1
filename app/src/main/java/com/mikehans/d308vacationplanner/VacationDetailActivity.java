@@ -36,6 +36,8 @@ public class VacationDetailActivity extends AppCompatActivity {
             EditText endInput = findViewById(R.id.editTextEndDate);
             Button saveButton = findViewById(R.id.buttonSaveChanges);
             Button setAlertsButton = findViewById(R.id.buttonSetAlerts);
+            Button shareButton = findViewById(R.id.buttonShare);
+
 
             titleInput.setText(vacation.getTitle());
             hotelInput.setText(vacation.getHotel());
@@ -89,6 +91,25 @@ public class VacationDetailActivity extends AppCompatActivity {
                     Toast.makeText(this, "Invalid date format. Please use YYYY-MM-DD.", Toast.LENGTH_SHORT).show();
                 }
             });
+
+            shareButton.setOnClickListener(v -> {
+                String title = titleInput.getText().toString().trim();
+                String hotel = hotelInput.getText().toString().trim();
+                String startDate = startInput.getText().toString().trim();
+                String endDate = endInput.getText().toString().trim();
+
+                String message = "Vacation: " + title +
+                        "\nHotel: " + hotel +
+                        "\nStart Date: " + startDate +
+                        "\nEnd Date: " + endDate;
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, message);
+
+                startActivity(Intent.createChooser(shareIntent, "Share vacation using"));
+            });
+
         }
     }
 
@@ -123,6 +144,7 @@ public class VacationDetailActivity extends AppCompatActivity {
             alarmManager.set(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent);
         }
     }
+
     private int getAlertRequestCode(String alertType) {
         if ("start".equals(alertType)) {
             return 1;
