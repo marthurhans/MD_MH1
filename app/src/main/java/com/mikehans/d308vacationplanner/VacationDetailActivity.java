@@ -11,9 +11,6 @@ import androidx.room.Room;
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Vacation;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
-
 public class VacationDetailActivity extends AppCompatActivity {
 
     @Override
@@ -41,14 +38,13 @@ public class VacationDetailActivity extends AppCompatActivity {
                 String updatedStart = startInput.getText().toString().trim();
                 String updatedEnd = endInput.getText().toString().trim();
 
-                if (!isValidDate(updatedStart) || !isValidDate(updatedEnd)) {
+                if (!ValidationUtils.isValidDate(updatedStart) || !ValidationUtils.isValidDate(updatedEnd)) {
                     Toast.makeText(this, "Please enter dates in YYYY-MM-DD format.", Toast.LENGTH_SHORT).show();
                     return;
-                } else if (!isDateRangeValid(updatedStart, updatedEnd)) {
+                } else if (!ValidationUtils.isDateRangeValid(updatedStart, updatedEnd)) {
                     Toast.makeText(this, "End date must be after start date.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
 
                 vacation.setTitle(updatedTitle);
                 vacation.setHotel(updatedHotel);
@@ -67,20 +63,5 @@ public class VacationDetailActivity extends AppCompatActivity {
             });
         }
     }
-
-    private boolean isValidDate(String date) {
-        return date.matches("\\d{4}-\\d{2}-\\d{2}");
-    }
-
-    private boolean isDateRangeValid(String start, String end) {
-        try {
-            LocalDate startDate = LocalDate.parse(start);
-            LocalDate endDate = LocalDate.parse(end);
-            return endDate.isAfter(startDate);
-        } catch (DateTimeParseException e) {
-            return false;
-        }
-    }
-
 }
 

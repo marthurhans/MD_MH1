@@ -33,4 +33,4 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task B3a:** `37cfd95` — Task B3a: add VacationDetailActivity for vacation details and navigation
 - **Task B3b:** `2927683` — Task B3b: add vacation editing with update logic
 - **Task B3c:** `ab6152d` — Task B3c: add date format validation for vacation input
-- **Task B3d:** `111111` — Task B3d: add end date after start date validation
+- **Task B3d:** `4f13e60` — Task B3d: add end date after start date validation
