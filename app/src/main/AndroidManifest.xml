@@ -24,6 +24,7 @@
 
         <activity android:name=".VacationDetailActivity" />
         <activity android:name=".ExcursionActivity" />
+        <activity android:name=".AllVacationsActivity" />
 
     </application>
 </manifest>

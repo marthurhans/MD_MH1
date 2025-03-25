@@ -105,6 +105,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "No vacation found to attach excursion.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button viewAllButton = findViewById(R.id.buttonViewAllVacations);
+        viewAllButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AllVacationsActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void clearInputFields(EditText title, EditText hotel, EditText startDate, EditText endDate) {
