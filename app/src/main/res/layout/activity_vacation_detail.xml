@@ -58,4 +58,12 @@
         android:text="Share Vacation"
         android:layout_marginTop="16dp" />
 
+    <TextView
+        android:id="@+id/textViewExcursions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Excursions will appear here."
+        android:layout_marginTop="24dp"
+        android:textStyle="italic" />
+
 </LinearLayout>

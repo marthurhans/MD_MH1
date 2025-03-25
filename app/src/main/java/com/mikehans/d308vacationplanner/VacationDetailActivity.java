@@ -7,18 +7,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
+import com.mikehans.d308vacationplanner.models.Excursion;
 import com.mikehans.d308vacationplanner.models.Vacation;
 
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 
 public class VacationDetailActivity extends AppCompatActivity {
 
@@ -37,7 +40,7 @@ public class VacationDetailActivity extends AppCompatActivity {
             Button saveButton = findViewById(R.id.buttonSaveChanges);
             Button setAlertsButton = findViewById(R.id.buttonSetAlerts);
             Button shareButton = findViewById(R.id.buttonShare);
-
+            TextView excursionsTextView = findViewById(R.id.textViewExcursions);
 
             titleInput.setText(vacation.getTitle());
             hotelInput.setText(vacation.getHotel());
@@ -65,6 +68,7 @@ public class VacationDetailActivity extends AppCompatActivity {
 
                 VacationDatabase db = Room.databaseBuilder(getApplicationContext(),
                                 VacationDatabase.class, "vacation_db")
+                        .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
                         .build();
 
@@ -110,6 +114,26 @@ public class VacationDetailActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(shareIntent, "Share vacation using"));
             });
 
+            VacationDatabase db = Room.databaseBuilder(getApplicationContext(),
+                            VacationDatabase.class, "vacation_db")
+                    .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
+                    .build();
+
+            List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
+
+            StringBuilder excursionList = new StringBuilder();
+            for (Excursion excursion : excursions) {
+                excursionList.append("- ").append(excursion.title).append(", ")
+                        .append(excursion.description).append(", ")
+                        .append(excursion.date).append("\n");
+            }
+
+            if (excursions.isEmpty()) {
+                excursionsTextView.setText("No excursions yet.");
+            } else {
+                excursionsTextView.setText(excursionList.toString().trim());
+            }
         }
     }
 
@@ -128,7 +152,7 @@ public class VacationDetailActivity extends AppCompatActivity {
 
         // MIKE - FIX THIS LATER:
         // Toggle to 'true' to test alerts in 5-10 seconds instead of waiting for real vacation dates.
-        // Set to 'false' before final commit or submission. This avoids triggering test-mode behavior.
+        // Set to 'false' before final commit or submission. This avoids triggering test-mode.
         boolean testMode = true;
 
         long triggerAtMillis;

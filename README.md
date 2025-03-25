@@ -35,4 +35,4 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task B3c:** `ab6152d` — Task B3c: add date format validation for vacation input
 - **Task B3d:** `4f13e60` — Task B3d: add end date after start date validation
 - **Task B3e:** `41fb870` — Task B3e: vacation alerts (start/end) scheduled via AlarmManager + receiver with test code
-- **Task B3f:** `1111111` — Task B3f: share vacation info using share intent
+- **Task B3f:** `4058082` — Task B3f: share vacation info using share intent
