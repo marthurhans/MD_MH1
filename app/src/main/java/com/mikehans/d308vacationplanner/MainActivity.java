@@ -121,10 +121,12 @@ public class MainActivity extends AppCompatActivity {
         endDate.setText("");
     }
 
-    // MIKE - FIX THIS LATER - Excursion always 'false' (to currently allow vacation deletions)
+    // FIXED
     private boolean hasExcursions(Vacation vacation) {
-        return false;
+        List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
+        return !excursions.isEmpty();
     }
+
 
     // MIKE - FIX OR REMOVE THIS LATER - Sends excursions to logcat
     private void logAllExcursions() {
