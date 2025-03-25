@@ -1,5 +1,9 @@
 package com.mikehans.d308vacationplanner;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +14,11 @@ import androidx.room.Room;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Vacation;
+
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeParseException;
 
 public class VacationDetailActivity extends AppCompatActivity {
 
@@ -26,6 +35,7 @@ public class VacationDetailActivity extends AppCompatActivity {
             EditText startInput = findViewById(R.id.editTextStartDate);
             EditText endInput = findViewById(R.id.editTextEndDate);
             Button saveButton = findViewById(R.id.buttonSaveChanges);
+            Button setAlertsButton = findViewById(R.id.buttonSetAlerts);
 
             titleInput.setText(vacation.getTitle());
             hotelInput.setText(vacation.getHotel());
@@ -61,7 +71,63 @@ public class VacationDetailActivity extends AppCompatActivity {
                 Toast.makeText(this, "Vacation updated!", Toast.LENGTH_SHORT).show();
                 finish();
             });
+
+            setAlertsButton.setOnClickListener(v -> {
+                String title = titleInput.getText().toString();
+                String startDateStr = startInput.getText().toString();
+                String endDateStr = endInput.getText().toString();
+
+                try {
+                    LocalDate startDate = LocalDate.parse(startDateStr);
+                    LocalDate endDate = LocalDate.parse(endDateStr);
+
+                    scheduleAlert(startDate, "start", title);
+                    scheduleAlert(endDate, "end", title);
+
+                    Toast.makeText(this, "Vacation alerts scheduled!", Toast.LENGTH_SHORT).show();
+                } catch (DateTimeParseException e) {
+                    Toast.makeText(this, "Invalid date format. Please use YYYY-MM-DD.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    private void scheduleAlert(LocalDate date, String alertType, String vacationTitle) {
+        Context context = getApplicationContext();
+        Intent intent = new Intent(context, VacationAlertReceiver.class);
+        intent.putExtra("alertType", alertType);
+        intent.putExtra("vacationTitle", vacationTitle);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                context,
+                getAlertRequestCode(alertType),
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+        // MIKE - FIX THIS LATER:
+        // Toggle to 'true' to test alerts in 5-10 seconds instead of waiting for real vacation dates.
+        // Set to 'false' before final commit or submission. This avoids triggering test-mode behavior.
+        boolean testMode = true;
+
+        long triggerAtMillis;
+        if (testMode) {
+            triggerAtMillis = System.currentTimeMillis() + (alertType.equals("start") ? 5000 : 10000);
+        } else {
+            ZonedDateTime zonedDateTime = date.atTime(8, 0).atZone(ZoneId.systemDefault());
+            triggerAtMillis = zonedDateTime.toInstant().toEpochMilli();
+        }
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null) {
+            alarmManager.set(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent);
+        }
+    }
+    private int getAlertRequestCode(String alertType) {
+        if ("start".equals(alertType)) {
+            return 1;
+        } else {
+            return 2;
         }
     }
 }
-

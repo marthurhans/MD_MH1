@@ -14,7 +14,6 @@ public class Vacation implements Serializable {
     private String startDate;
     private String endDate;
 
-    // Constructor
     public Vacation (String title, String hotel, String startDate, String endDate) {
         this.title = title;
         this.hotel = hotel;
