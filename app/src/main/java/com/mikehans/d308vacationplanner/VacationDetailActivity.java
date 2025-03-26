@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +43,7 @@ public class VacationDetailActivity extends AppCompatActivity {
             Button saveButton = findViewById(R.id.buttonSaveChanges);
             Button setAlertsButton = findViewById(R.id.buttonSetAlerts);
             Button shareButton = findViewById(R.id.buttonShare);
+
 
             titleInput.setText(vacation.getTitle());
             hotelInput.setText(vacation.getHotel());
@@ -119,6 +121,10 @@ public class VacationDetailActivity extends AppCompatActivity {
         if (vacation != null) {
             VacationDatabase db = VacationDatabase.getInstance(this);
             List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
+
+            TextView excursionsTitleTextView = findViewById(R.id.textViewExcursionsTitle);
+
+            excursionsTitleTextView.setText("Excursions:\n(Tap any excursion to edit or delete)");
 
             ListView listView = findViewById(R.id.listViewExcursions);
 

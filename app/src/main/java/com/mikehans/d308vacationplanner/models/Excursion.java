@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity(tableName = "excursions")
 public class Excursion implements Serializable {
@@ -58,7 +60,9 @@ public class Excursion implements Serializable {
 
     @Override
     public String toString() {
-        return "Title: " + title + "\nDate:  " + date + "   [ID#" + id + "]";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+        LocalDate excursionDate = LocalDate.parse(date);
+        return title + "  (" + excursionDate.format(formatter) + ")";
     }
 }
 
