@@ -58,7 +58,7 @@ public class Excursion implements Serializable {
 
     @Override
     public String toString() {
-        return " " + id + ": " + title + " - " + date;
+        return "Title: " + title + "\nDate:  " + date + "   [ID#" + id + "]";
     }
 }
 

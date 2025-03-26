@@ -37,8 +37,9 @@ public class AllVacationsActivity extends AppCompatActivity {
                 display.append("  - No excursions\n");
             } else {
                 for (Excursion excursion : excursions) {
-                    display.append("  - ").append(excursion.getTitle()).append(", ")
-                            .append(excursion.getDate()).append("\n");
+                    display.append("  • Title: ").append(excursion.getTitle()).append("\n")
+                            .append("    Date:  ").append(excursion.getDate()).append("   [ID#")
+                            .append(excursion.getId()).append("]\n");
                 }
             }
 

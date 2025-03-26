@@ -58,6 +58,17 @@
         android:text="Share Vacation"
         android:layout_marginTop="16dp" />
 
+    <TextView
+        android:id="@+id/textViewExcursionsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Excursions:\n(Tap any excursion to edit or delete)"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        />
+
     <ListView
         android:id="@+id/listViewExcursions"
         android:layout_width="match_parent"
