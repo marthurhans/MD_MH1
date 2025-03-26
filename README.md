@@ -37,4 +37,4 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task B3e:** `41fb870` — Task B3e: vacation alerts (start/end) scheduled via AlarmManager + receiver with test code
 - **Task B3f:** `4058082` — Task B3f: share vacation info using share intent
 - **Task B3g:** `05e2dd0` — Task B3g: create vacation view page for all vacations and each added excursion
-- **Task B3h:** `1111111` — Task B3h: add excursion editing/deleting with ListView on vacation detail screen
+- **Task B3h:** `e8ee2c5` — Task B3g (labled by mistake): add excursion editing/deleting with ListView on vacation detail screen
