@@ -5,9 +5,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,12 +25,14 @@ import java.util.List;
 
 public class VacationDetailActivity extends AppCompatActivity {
 
+    private Vacation vacation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vacation_detail);
 
-        Vacation vacation = (Vacation) getIntent().getSerializableExtra("vacation");
+        vacation = (Vacation) getIntent().getSerializableExtra("vacation");
 
         if (vacation != null) {
             EditText titleInput = findViewById(R.id.editTextTitle);
@@ -39,7 +42,6 @@ public class VacationDetailActivity extends AppCompatActivity {
             Button saveButton = findViewById(R.id.buttonSaveChanges);
             Button setAlertsButton = findViewById(R.id.buttonSetAlerts);
             Button shareButton = findViewById(R.id.buttonShare);
-            TextView excursionsTextView = findViewById(R.id.textViewExcursions);
 
             titleInput.setText(vacation.getTitle());
             hotelInput.setText(vacation.getHotel());
@@ -107,19 +109,36 @@ public class VacationDetailActivity extends AppCompatActivity {
 
                 startActivity(Intent.createChooser(shareIntent, "Share vacation using"));
             });
+        }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (vacation != null) {
             VacationDatabase db = VacationDatabase.getInstance(this);
             List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
 
-            StringBuilder excursionList = new StringBuilder();
+            ListView listView = findViewById(R.id.listViewExcursions);
+
             if (excursions.isEmpty()) {
-                excursionsTextView.setText("No excursions yet.");
+                Toast.makeText(this, "No excursions yet.", Toast.LENGTH_SHORT).show();
+                listView.setAdapter(null);
             } else {
-                for (Excursion excursion : excursions) {
-                    excursionList.append("- ").append(excursion.getTitle()).append(", ")
-                            .append(excursion.getDate()).append("\n");
-                }
-                excursionsTextView.setText(excursionList.toString().trim());
+                ArrayAdapter<Excursion> adapter = new ArrayAdapter<>(
+                        this,
+                        android.R.layout.simple_list_item_1,
+                        excursions
+                );
+                listView.setAdapter(adapter);
+
+                listView.setOnItemClickListener((parent, view, position, id) -> {
+                    Excursion selectedExcursion = excursions.get(position);
+                    Intent intent = new Intent(VacationDetailActivity.this, ExcursionDetailActivity.class);
+                    intent.putExtra("excursion", selectedExcursion);
+                    startActivity(intent);
+                });
             }
         }
     }
