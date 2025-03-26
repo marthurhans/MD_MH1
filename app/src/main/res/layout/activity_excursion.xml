@@ -13,13 +13,6 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/editTextExcursionDescription"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Description"
-        android:inputType="text" />
-
-    <EditText
         android:id="@+id/editTextExcursionDate"
         android:layout_width="match_parent"
         android:layout_height="48dp"

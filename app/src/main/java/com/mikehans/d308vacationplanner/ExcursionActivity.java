@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
@@ -20,25 +19,19 @@ public class ExcursionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_excursion);
 
         EditText titleInput = findViewById(R.id.editTextExcursionTitle);
-        EditText descInput = findViewById(R.id.editTextExcursionDescription);
         EditText dateInput = findViewById(R.id.editTextExcursionDate);
         Button addButton = findViewById(R.id.buttonAddExcursion);
 
         addButton.setOnClickListener(v -> {
             String title = titleInput.getText().toString().trim();
-            String description = descInput.getText().toString().trim();
             String date = dateInput.getText().toString().trim();
 
             // MIKE - FIX THIS LATER
             int vacationId = getIntent().getIntExtra("vacationId", -1);
 
-            Excursion excursion = new Excursion(title, description, date, vacationId);
+            Excursion excursion = new Excursion(title, date, vacationId);
 
-            VacationDatabase db = Room.databaseBuilder(getApplicationContext(),
-                            VacationDatabase.class, "vacation_db")
-                    .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries()
-                    .build();
+            VacationDatabase db = VacationDatabase.getInstance(this);
 
             db.excursionDao().insert(excursion);
             Log.d("Vacation_DB", "Excursion saved: " + excursion);

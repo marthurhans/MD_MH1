@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/excursion_title_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Excursion Title" />
+
+    <EditText
+        android:id="@+id/excursion_date_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="YYYY-MM-DD" />
+
+    <Button
+        android:id="@+id/update_excursion_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Excursion" />
+
+    <Button
+        android:id="@+id/delete_excursion_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Excursion"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black" />
+</LinearLayout>

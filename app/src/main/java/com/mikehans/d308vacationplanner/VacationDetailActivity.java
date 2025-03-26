@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
@@ -66,12 +65,7 @@ public class VacationDetailActivity extends AppCompatActivity {
                 vacation.setStartDate(updatedStart);
                 vacation.setEndDate(updatedEnd);
 
-                VacationDatabase db = Room.databaseBuilder(getApplicationContext(),
-                                VacationDatabase.class, "vacation_db")
-                        .fallbackToDestructiveMigration()
-                        .allowMainThreadQueries()
-                        .build();
-
+                VacationDatabase db = VacationDatabase.getInstance(this);
                 db.vacationDao().update(vacation);
 
                 Toast.makeText(this, "Vacation updated!", Toast.LENGTH_SHORT).show();
@@ -114,24 +108,17 @@ public class VacationDetailActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(shareIntent, "Share vacation using"));
             });
 
-            VacationDatabase db = Room.databaseBuilder(getApplicationContext(),
-                            VacationDatabase.class, "vacation_db")
-                    .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries()
-                    .build();
-
+            VacationDatabase db = VacationDatabase.getInstance(this);
             List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
 
             StringBuilder excursionList = new StringBuilder();
-            for (Excursion excursion : excursions) {
-                excursionList.append("- ").append(excursion.title).append(", ")
-                        .append(excursion.description).append(", ")
-                        .append(excursion.date).append("\n");
-            }
-
             if (excursions.isEmpty()) {
                 excursionsTextView.setText("No excursions yet.");
             } else {
+                for (Excursion excursion : excursions) {
+                    excursionList.append("- ").append(excursion.getTitle()).append(", ")
+                            .append(excursion.getDate()).append("\n");
+                }
                 excursionsTextView.setText(excursionList.toString().trim());
             }
         }
@@ -170,10 +157,6 @@ public class VacationDetailActivity extends AppCompatActivity {
     }
 
     private int getAlertRequestCode(String alertType) {
-        if ("start".equals(alertType)) {
-            return 1;
-        } else {
-            return 2;
-        }
+        return "start".equals(alertType) ? 1 : 2;
     }
 }

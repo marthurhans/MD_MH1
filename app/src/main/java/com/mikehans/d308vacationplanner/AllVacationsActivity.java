@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
@@ -21,11 +20,7 @@ public class AllVacationsActivity extends AppCompatActivity {
 
         TextView output = findViewById(R.id.textViewAllVacations);
 
-        VacationDatabase db = Room.databaseBuilder(getApplicationContext(),
-                        VacationDatabase.class, "vacation_db")
-                .fallbackToDestructiveMigration()
-                .allowMainThreadQueries()
-                .build();
+        VacationDatabase db = VacationDatabase.getInstance(this);
 
         List<Vacation> vacations = db.vacationDao().getAllVacations();
 
@@ -42,9 +37,8 @@ public class AllVacationsActivity extends AppCompatActivity {
                 display.append("  - No excursions\n");
             } else {
                 for (Excursion excursion : excursions) {
-                    display.append("  - ").append(excursion.title).append(", ")
-                            .append(excursion.description).append(", ")
-                            .append(excursion.date).append("\n");
+                    display.append("  - ").append(excursion.getTitle()).append(", ")
+                            .append(excursion.getDate()).append("\n");
                 }
             }
 

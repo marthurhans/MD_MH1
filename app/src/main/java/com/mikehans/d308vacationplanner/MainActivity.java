@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
@@ -26,10 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         logAllExcursions();  // MIKE: FIX OR REMOVE
 
-        db = Room.databaseBuilder(getApplicationContext(),
-                        VacationDatabase.class, "vacation_db")
-                .allowMainThreadQueries()
-                .build();
+        db = VacationDatabase.getInstance(this);
 
         EditText editTitle = findViewById(R.id.editTextVacationTitle);
         EditText editHotel = findViewById(R.id.editTextHotel);
@@ -130,11 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
     // MIKE - FIX OR REMOVE THIS LATER - Sends excursions to logcat
     private void logAllExcursions() {
-        VacationDatabase db = Room.databaseBuilder(getApplicationContext(),
-                        VacationDatabase.class, "vacation_db")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
+        VacationDatabase db = VacationDatabase.getInstance(this);
 
         List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(999); // hardcoded for now
 
