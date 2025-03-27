@@ -39,4 +39,8 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task B3g:** `05e2dd0` — Task B3g: create vacation view page for all vacations and each added excursion
 - **Task B3h:** `e8ee2c5` — Task B3g (should be B3h): add excursion editing/deleting with ListView on vacation detail screen
 - **Task B4:** `52d7470` — Task B4: create clear details for each excursion, including date and title, across activities
-- **Task B5a:** `1111111` — Task B5a: enhance excursion date format and refine title TextView
+- **Task B5a:** `51de01f` — Task B5a: enhance excursion date format and refine title TextView
+- **Task B5b:** `2222222` — Task B5b: enable editing, adding and deleting excursions for all vacations
+- **Task B5c:** `3333333` — Task B5c: oooooooooooooooooooooooooooooooooooooooooooooooooooooo
+- **Task B5d:** `4444444` — Task B5d: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+- **Task B5e:** `5555555` — Task B5e: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
