@@ -22,13 +22,6 @@
         android:layout_marginTop="8dp" />
 
     <Button
-        android:id="@+id/buttonGoToExcursion"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:text="Test Excursion Screen"
-        android:layout_marginTop="8dp" />
-
-    <Button
         android:id="@+id/buttonViewDetails"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
@@ -75,19 +68,29 @@
         android:hint="Enter End Date (YYYY-MM-DD)"
         android:inputType="date" />
 
-    <Button
-        android:id="@+id/buttonSaveVacation"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Vacation"
-        android:layout_marginTop="12dp" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp">
 
-    <Button
-        android:id="@+id/buttonDeleteVacation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Vacation"
-        android:layout_marginTop="8dp" />
+        <Button
+            android:id="@+id/buttonSaveVacation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save Vacation"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/buttonDeleteVacation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete Vacation" />
+    </LinearLayout>
+
 </LinearLayout>
 
 

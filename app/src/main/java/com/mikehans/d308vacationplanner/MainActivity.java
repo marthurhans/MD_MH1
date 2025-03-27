@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         Button saveButton = findViewById(R.id.buttonSaveVacation);
         Button deleteButton = findViewById(R.id.buttonDeleteVacation);
         Button viewDetailsButton = findViewById(R.id.buttonViewDetails);
-        Button goToExcursionButton = findViewById(R.id.buttonGoToExcursion);
 
         saveButton.setOnClickListener(v -> {
             String title = editTitle.getText().toString().trim();
@@ -89,25 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "No vacation data to view.", Toast.LENGTH_SHORT).show();
             }
         });
-
-        goToExcursionButton.setOnClickListener(v -> {
-            List<Vacation> vacations = db.vacationDao().getAllVacations();
-            if (!vacations.isEmpty()) {
-                Vacation lastVacation = vacations.get(vacations.size() - 1);
-                Intent intent = new Intent(MainActivity.this, ExcursionActivity.class);
-                intent.putExtra("vacationId", lastVacation.getId());
-                startActivity(intent);
-            } else {
-                Toast.makeText(this, "No vacation found to attach excursion.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Button viewAllButton = findViewById(R.id.buttonViewAllVacations);
-        viewAllButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AllVacationsActivity.class);
-            startActivity(intent);
-        });
-
     }
 
     private void clearInputFields(EditText title, EditText hotel, EditText startDate, EditText endDate) {
