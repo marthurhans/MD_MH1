@@ -26,8 +26,22 @@ public class ExcursionActivity extends AppCompatActivity {
             String title = titleInput.getText().toString().trim();
             String date = dateInput.getText().toString().trim();
 
-            // MIKE - FIX THIS LATER
+            if (title.isEmpty()) {
+                Toast.makeText(this, "Please enter an excursion title.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (!ValidationUtils.isValidDate(date)) {
+                Toast.makeText(this, "Please enter the date in YYYY-MM-DD format.",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             int vacationId = getIntent().getIntExtra("vacationId", -1);
+            if (vacationId == -1) {
+                Toast.makeText(this, "Invalid vacation ID. Cannot add excursion.", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             Excursion excursion = new Excursion(title, date, vacationId);
 
@@ -37,6 +51,7 @@ public class ExcursionActivity extends AppCompatActivity {
             Log.d("Vacation_DB", "Excursion saved: " + excursion);
             Toast.makeText(this, "Excursion added!", Toast.LENGTH_SHORT).show();
 
+            finish();
         });
     }
 }
