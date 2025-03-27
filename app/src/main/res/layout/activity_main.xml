@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,71 +10,84 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome to Vacation Planner"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:paddingBottom="20dp"/>
-
-    <EditText
-        android:id="@+id/editTextVacationTitle"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter Vacation Title"
-        android:inputType="text"/>
-
-    <EditText
-        android:id="@+id/editTextHotel"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter Hotel/Accommodation"
-        android:inputType="text"/>
-
-    <EditText
-        android:id="@+id/editTextStartDate"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter Start Date (YYYY-MM-DD)"
-        android:inputType="date"/>
-
-    <EditText
-        android:id="@+id/editTextEndDate"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter End Date (YYYY-MM-DD)"
-        android:inputType="date"/>
-
-    <Button
-        android:id="@+id/buttonSaveVacation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save Vacation"/>
-
-    <Button
-        android:id="@+id/buttonDeleteVacation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Vacation"
-        android:layout_marginTop="12dp"/>
-
-    <Button
-        android:id="@+id/buttonViewDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View Vacation Details"
-        android:layout_marginTop="12dp"/>
-
-    <Button
-        android:id="@+id/buttonGoToExcursion"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:text="Test Excursion Screen"
-        android:layout_marginTop="12dp" />
 
     <Button
         android:id="@+id/buttonViewAllVacations"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="View All Vacations + Excursions"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/buttonGoToExcursion"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Test Excursion Screen"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/buttonViewDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="View Vacation Details"
+        android:layout_marginTop="8dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a New Vacation"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <EditText
+        android:id="@+id/editTextVacationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter Vacation Title"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextHotel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter Hotel/Accommodation"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextStartDate"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter Start Date (YYYY-MM-DD)"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/editTextEndDate"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Enter End Date (YYYY-MM-DD)"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/buttonSaveVacation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Vacation"
         android:layout_marginTop="12dp" />
 
+    <Button
+        android:id="@+id/buttonDeleteVacation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Vacation"
+        android:layout_marginTop="8dp" />
 </LinearLayout>
+
 
