@@ -13,6 +13,8 @@
 
         <receiver android:name=".VacationAlertReceiver"
             android:exported="false" />
+        <receiver android:name=".ExcursionAlertReceiver"
+            android:exported="false" />
 
         <activity android:name=".MainActivity"
             android:exported="true">

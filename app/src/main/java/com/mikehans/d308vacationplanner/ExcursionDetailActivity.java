@@ -1,5 +1,9 @@
 package com.mikehans.d308vacationplanner;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,11 +14,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeParseException;
+
 public class ExcursionDetailActivity extends AppCompatActivity {
 
     private EditText excursionTitleEditText;
     private EditText excursionDateEditText;
-    private Button updateButton, deleteButton;
+    private Button updateButton, deleteButton, alertButton;
 
     private Excursion currentExcursion;
     private VacationDatabase db;
@@ -28,6 +36,8 @@ public class ExcursionDetailActivity extends AppCompatActivity {
         excursionDateEditText = findViewById(R.id.excursion_date_edittext);
         updateButton = findViewById(R.id.update_excursion_button);
         deleteButton = findViewById(R.id.delete_excursion_button);
+        alertButton = findViewById(R.id.buttonSetExcursionAlert);
+
 
         db = VacationDatabase.getInstance(this);
 
@@ -40,6 +50,20 @@ public class ExcursionDetailActivity extends AppCompatActivity {
 
         updateButton.setOnClickListener(v -> updateExcursion());
         deleteButton.setOnClickListener(v -> deleteExcursion());
+        alertButton.setOnClickListener(v -> {
+            if (currentExcursion == null) return;
+
+            String title = currentExcursion.getTitle();
+            String dateStr = currentExcursion.getDate();
+
+            try {
+                LocalDate excursionDate = LocalDate.parse(dateStr);
+                scheduleExcursionAlert(excursionDate, title);
+                Toast.makeText(this, "Excursion alert scheduled!", Toast.LENGTH_SHORT).show();
+            } catch (DateTimeParseException e) {
+                Toast.makeText(this, "Invalid date format for alert.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void updateExcursion() {
@@ -64,5 +88,32 @@ public class ExcursionDetailActivity extends AppCompatActivity {
         Toast.makeText(this, "Excursion deleted", Toast.LENGTH_SHORT).show();
         finish();
     }
+
+    private void scheduleExcursionAlert(LocalDate date, String title) {
+        Intent intent = new Intent(this, ExcursionAlertReceiver.class);
+        intent.putExtra("excursionTitle", title);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                this,
+                1,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
+        // MIKE - FIX THIS LATER:
+        // Toggle to 'true' to test alerts in 5-10 seconds instead of waiting for real vacation dates.
+        // Set to 'false' before final commit or submission. This avoids triggering test-mode.
+        boolean testMode = true;
+        long triggerAtMillis = testMode
+                ? System.currentTimeMillis() + 5000
+                : date.atTime(8, 0).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null) {
+            alarmManager.set(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent);
+        }
+    }
+
+
 }
 

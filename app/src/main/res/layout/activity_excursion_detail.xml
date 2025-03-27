@@ -26,8 +26,16 @@
     <Button
         android:id="@+id/delete_excursion_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:text="Delete Excursion"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/black" />
+
+    <Button
+        android:id="@+id/buttonSetExcursionAlert"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Set Excursion Alert"
+        android:layout_marginTop="12dp" />
+
 </LinearLayout>
