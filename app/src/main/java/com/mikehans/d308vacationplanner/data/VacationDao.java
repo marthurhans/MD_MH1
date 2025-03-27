@@ -21,5 +21,8 @@ public interface VacationDao {
 
     @Query("SELECT * FROM vacation_table")
     List<Vacation> getAllVacations();
+
+    @Query("SELECT * FROM vacation_table WHERE id = :id LIMIT 1")
+    Vacation getVacationById(int id);
 }
 

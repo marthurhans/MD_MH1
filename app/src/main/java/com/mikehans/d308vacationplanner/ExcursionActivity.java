@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
+import com.mikehans.d308vacationplanner.models.Vacation;
 
 public class ExcursionActivity extends AppCompatActivity {
 
@@ -43,9 +44,20 @@ public class ExcursionActivity extends AppCompatActivity {
                 return;
             }
 
-            Excursion excursion = new Excursion(title, date, vacationId);
-
             VacationDatabase db = VacationDatabase.getInstance(this);
+            Vacation associatedVacation = db.vacationDao().getVacationById(vacationId);
+
+            String vacationStart = associatedVacation.getStartDate();
+            String vacationEnd = associatedVacation.getEndDate();
+
+            if (!ValidationUtils.isDateRangeValid(vacationStart, date) ||
+                    !ValidationUtils.isDateRangeValid(date, vacationEnd)) {
+                Toast.makeText(this, "Excursion date must be within vacation range (" + vacationStart + " to " + vacationEnd + ").",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            Excursion excursion = new Excursion(title, date, vacationId);
 
             db.excursionDao().insert(excursion);
             Log.d("Vacation_DB", "Excursion saved: " + excursion);

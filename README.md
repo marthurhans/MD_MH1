@@ -42,5 +42,5 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task B5a:** `51de01f` — Task B5a: enhance excursion date format and refine title TextView
 - **Task B5b:** `eb51bca` — Task B5b: enable editing, adding and deleting excursions for all vacations
 - **Task B5c:** `a05c4f6` — Task B5c: add excursion date format validation and input checks
-- **Task B5d:** `4444444` — Task B5d: add alert scheduling for excursions
-- **Task B5e:** `5555555` — Task B5e: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+- **Task B5d:** `5a36e1c` — Task B5d: add alert scheduling for excursions
+- **Task B5e:** `5555555` — Task B5e: validate that excursion dates fall within vacation range
