@@ -43,7 +43,7 @@ public class VacationDetailActivity extends AppCompatActivity {
             Button saveButton = findViewById(R.id.buttonSaveChanges);
             Button setAlertsButton = findViewById(R.id.buttonSetAlerts);
             Button shareButton = findViewById(R.id.buttonShare);
-
+            Button addExcursionButton = findViewById(R.id.buttonAddExcursion);
 
             titleInput.setText(vacation.getTitle());
             hotelInput.setText(vacation.getHotel());
@@ -111,6 +111,13 @@ public class VacationDetailActivity extends AppCompatActivity {
 
                 startActivity(Intent.createChooser(shareIntent, "Share vacation using"));
             });
+
+            addExcursionButton.setOnClickListener(v -> {
+                Intent intent = new Intent(VacationDetailActivity.this, ExcursionActivity.class);
+                intent.putExtra("vacationId", vacation.getId());
+                startActivity(intent);
+            });
+
         }
     }
 
