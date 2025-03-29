@@ -88,6 +88,13 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "No vacation data to view.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button addVacationButton = findViewById(R.id.buttonAddVacation);
+        addVacationButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AddVacationActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void clearInputFields(EditText title, EditText hotel, EditText startDate, EditText endDate) {
