@@ -47,8 +47,8 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task C Update:** `989d7a2` — Task C Update: adjust new main menu layout while preserving app functionality
 - **Task C Update:** `206cd24` — Task C Update: compress Save/Delete buttons and remove test screen button
 - **Task C Update:** `83cc062` — Task C Update: add AddVacationActivity and connect to main screen
-- **Task C Update:** `3333333` — Task C Update: move vacation form to AddVacationActivity
-- **Task C Update:** `4444444`
+- **Task C Update:** `e92da76` — Task C Update: move vacation form to AddVacationActivity
+- **Task C Update:** `3333333` — Task C Update: remove old vacation form from MainActivity layout and Java
 - **Task C Update:** `5555555`
 - **Task C Update:** `6666666`
 - **Task C Update:** `7777777`

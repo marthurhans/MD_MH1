@@ -35,68 +35,12 @@
         android:text="Add New Vacation"
         android:layout_marginTop="8dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <TextView
+    <Button
+        android:id="@+id/buttonDeleteVacation"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add a New Vacation"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:paddingBottom="8dp" />
-
-    <EditText
-        android:id="@+id/editTextVacationTitle"
-        android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Enter Vacation Title"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/editTextHotel"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter Hotel/Accommodation"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/editTextStartDate"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter Start Date (YYYY-MM-DD)"
-        android:inputType="date" />
-
-    <EditText
-        android:id="@+id/editTextEndDate"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter End Date (YYYY-MM-DD)"
-        android:inputType="date" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="12dp">
-
-        <Button
-            android:id="@+id/buttonSaveVacation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Save Vacation"
-            android:layout_marginEnd="8dp" />
-
-        <Button
-            android:id="@+id/buttonDeleteVacation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Delete Vacation" />
-    </LinearLayout>
+        android:text="Delete Vacation"
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>
 

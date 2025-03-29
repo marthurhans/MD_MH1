@@ -27,38 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         db = VacationDatabase.getInstance(this);
 
-        EditText editTitle = findViewById(R.id.editTextVacationTitle);
-        EditText editHotel = findViewById(R.id.editTextHotel);
-        EditText editStartDate = findViewById(R.id.editTextStartDate);
-        EditText editEndDate = findViewById(R.id.editTextEndDate);
-        Button saveButton = findViewById(R.id.buttonSaveVacation);
         Button deleteButton = findViewById(R.id.buttonDeleteVacation);
         Button viewDetailsButton = findViewById(R.id.buttonViewDetails);
-
-        saveButton.setOnClickListener(v -> {
-            String title = editTitle.getText().toString().trim();
-            String hotel = editHotel.getText().toString().trim();
-            String startDate = editStartDate.getText().toString().trim();
-            String endDate = editEndDate.getText().toString().trim();
-
-            if (title.isEmpty() || hotel.isEmpty() || startDate.isEmpty() || endDate.isEmpty()) {
-                Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show();
-            } else if (!ValidationUtils.isValidDate(startDate) || !ValidationUtils.isValidDate(endDate)) {
-                Toast.makeText(this, "Please enter dates in YYYY-MM-DD format.", Toast.LENGTH_SHORT).show();
-            } else if (!ValidationUtils.isDateRangeValid(startDate, endDate)) {
-                Toast.makeText(this, "End date must be after start date.", Toast.LENGTH_SHORT).show();
-            } else {
-                Vacation vacation = new Vacation(title, hotel, startDate, endDate);
-                db.vacationDao().insert(vacation);
-                Toast.makeText(this, "Vacation Saved!", Toast.LENGTH_SHORT).show();
-                clearInputFields(editTitle, editHotel, editStartDate, editEndDate);
-            }
-
-            List<Vacation> vacations = db.vacationDao().getAllVacations();
-            for (Vacation vac : vacations) {
-                Log.d("VACATION_DB", vac.toString());
-            }
-        });
 
         deleteButton.setOnClickListener(v -> {
             List<Vacation> vacations = db.vacationDao().getAllVacations();
