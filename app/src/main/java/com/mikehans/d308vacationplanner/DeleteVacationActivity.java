@@ -46,6 +46,8 @@ public class DeleteVacationActivity extends AppCompatActivity {
             if (excursions.isEmpty()) {
                 Button deleteButton = new Button(this);
                 deleteButton.setText("Delete This Vacation");
+                deleteButton.setBackgroundColor(getColor(android.R.color.black));
+                deleteButton.setTextColor(getColor(android.R.color.white));
                 deleteButton.setOnClickListener(v -> {
                     db.vacationDao().delete(vacation);
                     Toast.makeText(this, "Vacation deleted!", Toast.LENGTH_SHORT).show();

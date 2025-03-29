@@ -15,10 +15,10 @@
         android:paddingBottom="20dp"/>
 
     <Button
-        android:id="@+id/buttonViewAllVacations"
+        android:id="@+id/buttonAddVacation"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="View All Vacations + Excursions"
+        android:text="Add New Vacation"
         android:layout_marginTop="8dp" />
 
     <Button
@@ -36,10 +36,10 @@
         android:layout_marginTop="8dp" />
 
     <Button
-        android:id="@+id/buttonAddVacation"
+        android:id="@+id/buttonViewAllVacations"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="Add New Vacation"
+        android:text="View/Edit All Excursions"
         android:layout_marginTop="8dp" />
 
     <Button
@@ -47,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="Delete a Vacation"
+        android:backgroundTint="@color/black"
         android:layout_marginTop="8dp" />
 
 </LinearLayout>
