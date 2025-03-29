@@ -71,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button editVacationButton = findViewById(R.id.buttonEditVacation);
+        editVacationButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SelectVacationActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void clearInputFields(EditText title, EditText hotel, EditText startDate, EditText endDate) {

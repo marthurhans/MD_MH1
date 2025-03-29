@@ -44,18 +44,18 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task B5c:** `a05c4f6` — Task B5c: add excursion date format validation and input checks
 - **Task B5d:** `5a36e1c` — Task B5d: add alert scheduling for excursions
 - **Task B5e:** `e563ed3` — Task B5e: validate that excursion dates fall within vacation range
-- **Task C Update:** `989d7a2` — Task C Update: adjust new main menu layout while preserving app functionality
-- **Task C Update:** `206cd24` — Task C Update: compress Save/Delete buttons and remove test screen button
-- **Task C Update:** `83cc062` — Task C Update: add AddVacationActivity and connect to main screen
-- **Task C Update:** `e92da76` — Task C Update: move vacation form to AddVacationActivity
-- **Task C Update:** `3333333` — Task C Update: remove old vacation form from MainActivity layout and Java
-- **Task C Update:** `5555555`
-- **Task C Update:** `6666666`
-- **Task C Update:** `7777777`
-- **Task C Update:** `8888888`
-- **Task C Update:** `9999999`
-- **Task C Update:** `0000000`
-- **Task C Update:** `aaaaaaa`
-- **Task C Update:** `bbbbbbb`
-- **Task C Update:** `ccccccc`
-- **Task C Update:** `ddddddd`
+- **Task C:** `989d7a2` — Task C Update: adjust new main menu layout while preserving app functionality
+- **Task C:** `206cd24` — Task C Update: compress Save/Delete buttons and remove test screen button
+- **Task C:** `83cc062` — Task C Update: add AddVacationActivity and connect to main screen
+- **Task C:** `e92da76` — Task C Update: move vacation form to AddVacationActivity
+- **Task C:** `b26704d` — Task C Update: remove old vacation form from MainActivity layout and Java
+- **Task C:** `5555555` — Task C Update: add vacation selector screen and enable multi-vacation editing
+- **Task C:** `6666666`
+- **Task C:** `7777777`
+- **Task C:** `8888888`
+- **Task C:** `9999999`
+- **Task C:** `0000000`
+- **Task C:** `aaaaaaa`
+- **Task C:** `bbbbbbb`
+- **Task C:** `ccccccc`
+- **Task C:** `ddddddd`

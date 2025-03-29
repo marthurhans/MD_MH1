@@ -29,6 +29,7 @@
         <activity android:name=".AllVacationsActivity" />
         <activity android:name=".ExcursionDetailActivity" />
         <activity android:name=".AddVacationActivity" />
+        <activity android:name=".SelectVacationActivity" />
 
     </application>
 </manifest>
