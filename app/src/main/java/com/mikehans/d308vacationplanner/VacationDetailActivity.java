@@ -44,6 +44,7 @@ public class VacationDetailActivity extends AppCompatActivity {
             Button setAlertsButton = findViewById(R.id.buttonSetAlerts);
             Button shareButton = findViewById(R.id.buttonShare);
             Button addExcursionButton = findViewById(R.id.buttonAddExcursion);
+            Button backButton = findViewById(R.id.buttonBack);
 
             titleInput.setText(vacation.getTitle());
             hotelInput.setText(vacation.getHotel());
@@ -118,6 +119,7 @@ public class VacationDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             });
 
+            backButton.setOnClickListener(v -> finish());
         }
     }
 

@@ -3,6 +3,7 @@ package com.mikehans.d308vacationplanner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +23,9 @@ public class AllVacationsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_vacations);
 
         loadExcursions();
+
+        Button backButton = findViewById(R.id.buttonBack);
+        backButton.setOnClickListener(v -> finish());
     }
 
     @Override
@@ -33,7 +37,6 @@ public class AllVacationsActivity extends AppCompatActivity {
     private void loadExcursions() {
         ListView listView = findViewById(R.id.listViewAllVacations);
         VacationDatabase db = VacationDatabase.getInstance(this);
-
 
         List<Vacation> vacations = db.vacationDao().getAllVacations();
         List<Excursion> allExcursions = new ArrayList<>();

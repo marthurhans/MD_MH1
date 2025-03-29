@@ -48,4 +48,11 @@
         android:layout_height="wrap_content"
         android:text="Save Vacation"
         android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Back to Main Menu"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

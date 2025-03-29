@@ -23,6 +23,7 @@ public class SelectVacationActivity extends AppCompatActivity {
         List<Vacation> vacations = db.vacationDao().getAllVacations();
 
         LinearLayout layout = findViewById(R.id.vacationListLayout);
+        Button backButton = findViewById(R.id.buttonBack);
 
         // MIKE - FIX THIS
         if (layout == null) {
@@ -45,6 +46,7 @@ public class SelectVacationActivity extends AppCompatActivity {
 
             layout.addView(button);
         }
+        backButton.setOnClickListener(v -> finish());
     }
 }
 

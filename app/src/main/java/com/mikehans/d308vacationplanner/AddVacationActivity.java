@@ -21,6 +21,7 @@ public class AddVacationActivity extends AppCompatActivity {
         EditText editStartDate = findViewById(R.id.editTextStartDate);
         EditText editEndDate = findViewById(R.id.editTextEndDate);
         Button saveButton = findViewById(R.id.buttonSaveVacation);
+        Button backButton = findViewById(R.id.buttonBack);
 
         VacationDatabase db = VacationDatabase.getInstance(this);
 
@@ -44,6 +45,8 @@ public class AddVacationActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        backButton.setOnClickListener(v -> finish());
 
     }
 }

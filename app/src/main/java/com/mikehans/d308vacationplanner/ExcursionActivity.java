@@ -22,6 +22,7 @@ public class ExcursionActivity extends AppCompatActivity {
         EditText titleInput = findViewById(R.id.editTextExcursionTitle);
         EditText dateInput = findViewById(R.id.editTextExcursionDate);
         Button addButton = findViewById(R.id.buttonAddExcursion);
+        Button backButton = findViewById(R.id.buttonBack);
 
         addButton.setOnClickListener(v -> {
             String title = titleInput.getText().toString().trim();
@@ -50,9 +51,9 @@ public class ExcursionActivity extends AppCompatActivity {
             String vacationStart = associatedVacation.getStartDate();
             String vacationEnd = associatedVacation.getEndDate();
 
-            if (!ValidationUtils.isDateRangeValid(vacationStart, date) ||
-                    !ValidationUtils.isDateRangeValid(date, vacationEnd)) {
-                Toast.makeText(this, "Excursion date must be within vacation range (" + vacationStart + " to " + vacationEnd + ").",
+            if (ValidationUtils.isBefore(date, vacationStart) || ValidationUtils.isAfter(date, vacationEnd)) {
+                Toast.makeText(this, "Excursion date must be within vacation range ("
+                                + vacationStart + " to " + vacationEnd + ").",
                         Toast.LENGTH_LONG).show();
                 return;
             }
@@ -65,5 +66,6 @@ public class ExcursionActivity extends AppCompatActivity {
 
             finish();
         });
+        backButton.setOnClickListener(v -> finish());
     }
 }

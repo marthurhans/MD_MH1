@@ -53,8 +53,8 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task C:** `1552ea0` — Task C Update: add vacation deletion screen with excursion check and redirect
 - **Task C:** `82f916e` — Task C Update: relabel home screen buttons for clarity
 - **Task C:** `291e8d1` — Task C Update: add excursion creation from vacation editor screen
-- **Task C:** `8888888` — Task C Update: reorder home buttons and unify delete buttons (black fill)
-- **Task C:** `9999999` — Task C Update:
+- **Task C:** `2006d65` — Task C Update: reorder home buttons and unify delete buttons (black fill)
+- **Task C:** `9999999` — Task C Update: fix inclusive excursion date logic and back button cleanup
 - **Task C:** `1111111` — Task C Update:
 - **Task C:** `2222222` — Task C Update:
 - **Task C:** `3333333` — Task C Update:

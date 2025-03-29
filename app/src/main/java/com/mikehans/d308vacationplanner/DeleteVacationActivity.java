@@ -27,6 +27,7 @@ public class DeleteVacationActivity extends AppCompatActivity {
 
         db = VacationDatabase.getInstance(this);
         LinearLayout layout = findViewById(R.id.deleteVacationLayout);
+        Button backButton = findViewById(R.id.buttonBack);
 
         List<Vacation> vacations = db.vacationDao().getAllVacations();
 
@@ -69,6 +70,7 @@ public class DeleteVacationActivity extends AppCompatActivity {
                 layout.addView(cannotDelete);
             }
         }
+        backButton.setOnClickListener(v -> finish());
     }
 }
 
