@@ -27,24 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
         db = VacationDatabase.getInstance(this);
 
-        Button deleteButton = findViewById(R.id.buttonDeleteVacation);
         Button viewDetailsButton = findViewById(R.id.buttonViewDetails);
+        Button deleteVacationButton = findViewById(R.id.buttonDeleteVacation);
+        Button addVacationButton = findViewById(R.id.buttonAddVacation);
+        Button viewAllButton = findViewById(R.id.buttonViewAllVacations);
+        Button editVacationButton = findViewById(R.id.buttonEditVacation);
 
-        deleteButton.setOnClickListener(v -> {
-            List<Vacation> vacations = db.vacationDao().getAllVacations();
-
-            if (vacations.isEmpty()) {
-                Toast.makeText(this, "No vacations to delete!", Toast.LENGTH_SHORT).show();
-            } else {
-                Vacation vacationToDelete = vacations.get(vacations.size() - 1);
-
-                if (hasExcursions(vacationToDelete)) {
-                    Toast.makeText(this, "Cannot delete: Excursions exist for this vacation!", Toast.LENGTH_LONG).show();
-                } else {
-                    db.vacationDao().delete(vacationToDelete);
-                    Toast.makeText(this, "Vacation deleted!", Toast.LENGTH_SHORT).show();
-                }
-            }
+        deleteVacationButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, DeleteVacationActivity.class);
+            startActivity(intent);
         });
 
         viewDetailsButton.setOnClickListener(v -> {
@@ -59,19 +50,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button addVacationButton = findViewById(R.id.buttonAddVacation);
         addVacationButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddVacationActivity.class);
             startActivity(intent);
         });
 
-        Button viewAllButton = findViewById(R.id.buttonViewAllVacations);
+
         viewAllButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AllVacationsActivity.class);
             startActivity(intent);
         });
 
-        Button editVacationButton = findViewById(R.id.buttonEditVacation);
         editVacationButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SelectVacationActivity.class);
             startActivity(intent);

@@ -49,8 +49,8 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task C:** `83cc062` — Task C Update: add AddVacationActivity and connect to main screen
 - **Task C:** `e92da76` — Task C Update: move vacation form to AddVacationActivity
 - **Task C:** `b26704d` — Task C Update: remove old vacation form from MainActivity layout and Java
-- **Task C:** `5555555` — Task C Update: add vacation selector screen and enable multi-vacation editing
-- **Task C:** `6666666`
+- **Task C:** `93d3668` — Task C Update: add vacation selector screen and create multi-vacation editing
+- **Task C:** `6666666` — Task C Update: add vacation deletion screen with excursion check and redirect
 - **Task C:** `7777777`
 - **Task C:** `8888888`
 - **Task C:** `9999999`

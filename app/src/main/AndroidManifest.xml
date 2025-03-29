@@ -30,6 +30,7 @@
         <activity android:name=".ExcursionDetailActivity" />
         <activity android:name=".AddVacationActivity" />
         <activity android:name=".SelectVacationActivity" />
+        <activity android:name=".DeleteVacationActivity" />
 
     </application>
 </manifest>
