@@ -24,10 +24,25 @@ public class DeleteVacationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_vacation);
-
         db = VacationDatabase.getInstance(this);
+        displayVacations();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        displayVacations();
+    }
+
+    private void displayVacations() {
         LinearLayout layout = findViewById(R.id.deleteVacationLayout);
-        Button backButton = findViewById(R.id.buttonBack);
+        layout.removeAllViews();
+
+        TextView header = new TextView(this);
+        header.setText("Select a Vacation to Delete");
+        header.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        header.setPadding(0, 0, 0, 20);
+        layout.addView(header);
 
         List<Vacation> vacations = db.vacationDao().getAllVacations();
 
@@ -52,7 +67,7 @@ public class DeleteVacationActivity extends AppCompatActivity {
                 deleteButton.setOnClickListener(v -> {
                     db.vacationDao().delete(vacation);
                     Toast.makeText(this, "Vacation deleted!", Toast.LENGTH_SHORT).show();
-                    recreate();
+                    displayVacations();
                 });
                 layout.addView(deleteButton);
             } else {
@@ -70,7 +85,12 @@ public class DeleteVacationActivity extends AppCompatActivity {
                 layout.addView(cannotDelete);
             }
         }
+
+        Button backButton = new Button(this);
+        backButton.setText("Back to Main Menu");
         backButton.setOnClickListener(v -> finish());
+        layout.addView(backButton);
     }
 }
+
 
