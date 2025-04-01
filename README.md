@@ -58,8 +58,8 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task C:** `26ba688` — Task C Update: refactor DeleteVacationActivity to show updated excursion removal
 - **Task C:** `a3ea54c` — Task C Final: polish text, method cleanup, add vacation details to excursion edits, fix vacation edit refresh
 - **Task D:** `a8bf608` — Task D: add storyboard diagram showing app screen flow and navigation paths (pdf)
-- **Task E:** `1111111` — Task E: generate signed APK and document build process with screenshots (word doc)
-- **Task F:**
+- **Task E:** `332293b` — Task E: generate signed APK and document build process with screenshots (word doc)
+- **Task F:** `b4d6386` —
   Application Deployment Info (Task F)
   Title: Vacation Planner Mobile App
   Student: Michael Hans
