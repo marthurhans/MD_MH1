@@ -59,4 +59,54 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task C:** `a3ea54c` — Task C Final: polish text, method cleanup, add vacation details to excursion edits, fix vacation edit refresh
 - **Task D:** `a8bf608` — Task D: add storyboard diagram showing app screen flow and navigation paths (pdf)
 - **Task E:** `1111111` — Task E: generate signed APK and document build process with screenshots (word doc)
+- **Task F:**
+  Application Deployment Info (Task F)
+  Title: Vacation Planner Mobile App
+  Student: Michael Hans
+  ID: 001107400
 
+Purpose: 
+This app allows users to add, edit, view, and delete vacations and excursions. 
+Excursions are validated against vacation date ranges. 
+Alerts can be scheduled for start/end of vacations and excursions. 
+Vacation details can also be shared using system share options.
+
+How to Operate the Application and Reach Each Rubric Requirement:
+
+Home Screen: 
+Central navigation to all features (Add, Edit, Delete, View All).
+
+Vacation Management (Task B1–B3): 
+Add/edit/delete vacations. 
+Date validation ensures end date is after start. 
+Deletion blocked if excursions exist.
+
+Vacation Details (Task B3a–B3f): 
+View vacation data, excursions, and access vacation editing.
+Set alerts for vacation start and end dates.
+Allow vacation data sharing.
+
+Excursion Management (Task B4–B5): 
+Add/edit/delete excursions linked to vacations. 
+Validates format and ensures excursions fall within vacation date range. 
+Set alerts for excursion dates.
+
+Screen Layouts (Task C): 
+All five required screen types are represented and navigable.
+
+Storyboard (Task D): 
+Draw.io PDF attached to project repository and submitted separately as a PDF.
+
+Signed APK + Screenshots (Task E):
+Files represented in project repository.
+Screenshots attached to project repository and submitted separately as a Word doc.
+
+Target Android Version:
+Built for Android 8.0 (API Level 26)
+Developed and tested on Pixel XL emulator, selected for its native API 26 support per WGU recommendations.
+
+Git Repository Link:
+https://gitlab.com/wgu-gitlab-environment/student-repos/mhans1/d308-mobile-application-development-android.git
+
+Gitlab repository Web Page:
+https://gitlab.com/wgu-gitlab-environment/student-repos/mhans1/d308-mobile-application-development-android/-/tree/D308_MH1?ref_type=heads
