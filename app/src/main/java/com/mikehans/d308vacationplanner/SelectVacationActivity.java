@@ -14,21 +14,24 @@ import java.util.List;
 
 public class SelectVacationActivity extends AppCompatActivity {
 
+    private VacationDatabase db;
+    private LinearLayout layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_vacation);
 
-        VacationDatabase db = VacationDatabase.getInstance(this);
+        db = VacationDatabase.getInstance(this);
+        layout = findViewById(R.id.vacationListLayout);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        layout.removeAllViews();
         List<Vacation> vacations = db.vacationDao().getAllVacations();
-
-        LinearLayout layout = findViewById(R.id.vacationListLayout);
-        Button backButton = findViewById(R.id.buttonBack);
-
-        // MIKE - FIX THIS
-        if (layout == null) {
-            layout = findViewById(android.R.id.content);
-        }
 
         for (Vacation vacation : vacations) {
             Button button = new Button(this);
@@ -38,15 +41,17 @@ public class SelectVacationActivity extends AppCompatActivity {
                             vacation.getStartDate() + " to " + vacation.getEndDate()
             );
             button.setOnClickListener(v -> {
-                Intent intent = new Intent(SelectVacationActivity.this,
-                        VacationDetailActivity.class);
+                Intent intent = new Intent(SelectVacationActivity.this, VacationDetailActivity.class);
                 intent.putExtra("vacation", vacation);
                 startActivity(intent);
             });
-
             layout.addView(button);
         }
+
+        Button backButton = new Button(this);
+        backButton.setText("Back to Main Menu");
         backButton.setOnClickListener(v -> finish());
+        layout.addView(backButton);
     }
 }
 

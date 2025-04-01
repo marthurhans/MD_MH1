@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        logAllExcursions();  // MIKE: FIX OR REMOVE
+        logAllExcursions();  // TEST CODE: activate method
 
         db = VacationDatabase.getInstance(this);
 
-        Button viewDetailsButton = findViewById(R.id.buttonViewDetails);
+        Button viewLastVacationButton = findViewById(R.id.buttonViewDetails);
         Button deleteVacationButton = findViewById(R.id.buttonDeleteVacation);
         Button addVacationButton = findViewById(R.id.buttonAddVacation);
         Button viewAllButton = findViewById(R.id.buttonViewAllVacations);
@@ -38,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        viewDetailsButton.setOnClickListener(v -> {
+        viewLastVacationButton.setOnClickListener(v -> {
             List<Vacation> vacations = db.vacationDao().getAllVacations();
             if (!vacations.isEmpty()) {
-                Vacation vacationToSend = vacations.get(vacations.size() - 1); // MIKE - FIX THIS LATER - Pulling last vacation only
+                Vacation vacationToSend = vacations.get(vacations.size() - 1);
                 Intent intent = new Intent(MainActivity.this, VacationDetailActivity.class);
                 intent.putExtra("vacation", vacationToSend);
                 startActivity(intent);
@@ -68,25 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void clearInputFields(EditText title, EditText hotel, EditText startDate, EditText endDate) {
-        title.setText("");
-        hotel.setText("");
-        startDate.setText("");
-        endDate.setText("");
-    }
-
-    // FIXED
-    private boolean hasExcursions(Vacation vacation) {
-        List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(vacation.getId());
-        return !excursions.isEmpty();
-    }
-
-
-    // MIKE - FIX OR REMOVE THIS LATER - Sends excursions to logcat
+    // TEST CODE: Logs excursions from vacation ID 999 to Logcat for manual debugging
     private void logAllExcursions() {
         VacationDatabase db = VacationDatabase.getInstance(this);
 
-        List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(999); // hardcoded for now
+        List<Excursion> excursions = db.excursionDao().getExcursionsForVacation(999);
 
         for (Excursion e : excursions) {
             Log.d("Vacation_DB", "EXCURSION FOUND: " + e);

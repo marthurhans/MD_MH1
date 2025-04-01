@@ -171,10 +171,8 @@ public class VacationDetailActivity extends AppCompatActivity {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
         );
 
-        // MIKE - FIX THIS LATER:
-        // Toggle to 'true' to test alerts in 5-10 seconds instead of waiting for real vacation dates.
-        // Set to 'false' before final commit or submission. This avoids triggering test-mode.
-        boolean testMode = true;
+        // TEST CODE: toggle true to test alerts
+        boolean testMode = false;
 
         long triggerAtMillis;
         if (testMode) {

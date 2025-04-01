@@ -49,10 +49,11 @@ public class AllVacationsActivity extends AppCompatActivity {
             for (Excursion excursion : excursions) {
                 allExcursions.add(excursion);
                 associatedVacations.add(vacation);
-                displayList.add(vacation.getTitle() + " - " + excursion.getTitle() + " (" + excursion.getDate() + ")");
+                displayList.add(vacation.getTitle() + " - " + excursion.getTitle()
+                        + " (" + excursion.getDate() + ") \n++ Edit/Delete Excursion ++");
             }
 
-            displayList.add(vacation.getTitle() + " ++ Add Excursion ++");
+            displayList.add(vacation.getTitle() + " \n++ Add Excursion ++");
             allExcursions.add(null);
             associatedVacations.add(vacation);
         }
