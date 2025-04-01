@@ -57,5 +57,6 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task C:** `59c0680` — Task C Update: fix inclusive excursion date logic and back button cleanup
 - **Task C:** `26ba688` — Task C Update: refactor DeleteVacationActivity to show updated excursion removal
 - **Task C:** `a3ea54c` — Task C Final: polish text, method cleanup, add vacation details to excursion edits, fix vacation edit refresh
-- **Task D:** `1111111` — Task D: add storyboard diagram showing app screen flow and navigation paths
+- **Task D:** `a8bf608` — Task D: add storyboard diagram showing app screen flow and navigation paths (pdf)
+- **Task E:** `1111111` — Task E: generate signed APK and document build process with screenshots (word doc)
 
