@@ -56,6 +56,6 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task C:** `2006d65` — Task C Update: reorder home buttons and unify delete buttons (black fill)
 - **Task C:** `59c0680` — Task C Update: fix inclusive excursion date logic and back button cleanup
 - **Task C:** `26ba688` — Task C Update: refactor DeleteVacationActivity to show updated excursion removal
-- **Task C:** `2222222` — Task C Final: polish text, method cleanup, add vacation details to excursion edits, fix vacation edit refresh
-
+- **Task C:** `a3ea54c` — Task C Final: polish text, method cleanup, add vacation details to excursion edits, fix vacation edit refresh
+- **Task D:** `1111111` — Task D: add storyboard diagram showing app screen flow and navigation paths
 
