@@ -26,6 +26,10 @@ If you need additional support, please navigate to the course page and reach out
 ## FUTURE USE
 Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
 
+## SECOND SUBMISSION:
+- **Task B5 UPDATE:** `1111111` — add date range validation when editing excursions
+- 
+
 ## Task-to-Commit Breakdown:
 - **Task B1a:** `ff04c5b` — add vacation entry functionality
 - **Task B1b:** `b4fd37b` — Task B1b: add delete button and block deletion logic if excursion exists
@@ -110,3 +114,4 @@ https://gitlab.com/wgu-gitlab-environment/student-repos/mhans1/d308-mobile-appli
 
 Gitlab repository Web Page:
 https://gitlab.com/wgu-gitlab-environment/student-repos/mhans1/d308-mobile-application-development-android/-/tree/D308_MH1?ref_type=heads
+

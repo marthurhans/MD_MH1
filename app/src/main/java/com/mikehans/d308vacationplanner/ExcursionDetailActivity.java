@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mikehans.d308vacationplanner.data.VacationDatabase;
 import com.mikehans.d308vacationplanner.models.Excursion;
+import com.mikehans.d308vacationplanner.models.Vacation;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -75,6 +76,24 @@ public class ExcursionDetailActivity extends AppCompatActivity {
             return;
         }
 
+        // 🔍 Pull in associated vacation and validate
+        int vacationId = currentExcursion.getVacationId();
+        Vacation associatedVacation = db.vacationDao().getVacationById(vacationId);
+        if (associatedVacation == null) {
+            Toast.makeText(this, "Associated vacation not found.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String vacationStart = associatedVacation.getStartDate();
+        String vacationEnd = associatedVacation.getEndDate();
+
+        // Do not allow excursion update unless in vacation range
+        if (ValidationUtils.isBefore(newDate, vacationStart) || ValidationUtils.isAfter(newDate, vacationEnd)) {
+            Toast.makeText(this, "Excursion date must be within vacation range (" +
+                    vacationStart + " to " + vacationEnd + ").", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         currentExcursion.setTitle(newTitle);
         currentExcursion.setDate(newDate);
 
@@ -82,6 +101,7 @@ public class ExcursionDetailActivity extends AppCompatActivity {
         Toast.makeText(this, "Excursion updated", Toast.LENGTH_SHORT).show();
         finish();
     }
+
 
     private void deleteExcursion() {
         db.excursionDao().delete(currentExcursion);
@@ -111,7 +131,5 @@ public class ExcursionDetailActivity extends AppCompatActivity {
             alarmManager.set(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent);
         }
     }
-
-
 }
 
