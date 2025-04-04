@@ -8,13 +8,13 @@
     <EditText
         android:id="@+id/excursion_title_edittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Excursion Title" />
 
     <EditText
         android:id="@+id/excursion_date_edittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="YYYY-MM-DD" />
 
     <Button
@@ -37,5 +37,15 @@
         android:layout_height="48dp"
         android:text="Set Excursion Alert"
         android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/textViewVacationInfo"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text=""
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:layout_marginTop="24dp"
+        android:gravity="center" />
 
 </LinearLayout>

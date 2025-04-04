@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,7 @@ public class ExcursionDetailActivity extends AppCompatActivity {
     private EditText excursionTitleEditText;
     private EditText excursionDateEditText;
     private Button updateButton, deleteButton, alertButton;
-
+    private TextView vacationInfoTextView;
     private Excursion currentExcursion;
     private VacationDatabase db;
 
@@ -38,7 +39,7 @@ public class ExcursionDetailActivity extends AppCompatActivity {
         updateButton = findViewById(R.id.update_excursion_button);
         deleteButton = findViewById(R.id.delete_excursion_button);
         alertButton = findViewById(R.id.buttonSetExcursionAlert);
-
+        vacationInfoTextView = findViewById(R.id.textViewVacationInfo);
 
         db = VacationDatabase.getInstance(this);
 
@@ -47,6 +48,18 @@ public class ExcursionDetailActivity extends AppCompatActivity {
         if (currentExcursion != null) {
             excursionTitleEditText.setText(currentExcursion.getTitle());
             excursionDateEditText.setText(currentExcursion.getDate());
+            int vacationId = currentExcursion.getVacationId();
+            Vacation vacation = db.vacationDao().getVacationById(vacationId);
+
+            if (vacation != null) {
+                String title = vacation.getTitle();
+                String start = vacation.getStartDate();
+                String end = vacation.getEndDate();
+
+                String infoText = "Vacation: " + title + "\nDates: " + start + " to " + end;
+                vacationInfoTextView.setText(infoText);
+                vacationInfoTextView.setTextSize(18);
+            }
         }
 
         updateButton.setOnClickListener(v -> updateExcursion());
