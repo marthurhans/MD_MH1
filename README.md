@@ -29,7 +29,8 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 ## SECOND SUBMISSION:
 - **Task B5 UPDATE:** `40c5d67` — add date range validation when editing excursions
 - **Task B5 UPDATE:** `8b34f66` — display vacation details on Edit Excursion screen, now mimics Add Excursion
-
+- **Task B5 UPDATE:** `a1b66be` — rebuild signed APK for resubmission
+- **Task F UPDATE:** `1111111` — update README with second submission context and new APK build info
 
 ## Task-to-Commit Breakdown:
 - **Task B1a:** `ff04c5b` — add vacation entry functionality
@@ -64,7 +65,7 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task C:** `a3ea54c` — Task C Final: polish text, method cleanup, add vacation details to excursion edits, fix vacation edit refresh
 - **Task D:** `a8bf608` — Task D: add storyboard diagram showing app screen flow and navigation paths (pdf)
 - **Task E:** `332293b` — Task E: generate signed APK and document build process with screenshots (word doc)
-- **Task F:** `b4d6386` —
+- **Task F:** `b4d6386` — 
   Application Deployment Info (Task F)
   Title: Vacation Planner Mobile App
   Student: Michael Hans
@@ -93,7 +94,7 @@ Allow vacation data sharing.
 
 Excursion Management (Task B4–B5): 
 Add/edit/delete excursions linked to vacations. 
-Validates format and ensures excursions fall within vacation date range. 
+UPDATED: Validates format and ensures excursions can only be added OR EDITED within vacation’s date range.
 Set alerts for excursion dates.
 
 Screen Layouts (Task C): 
