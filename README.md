@@ -30,7 +30,7 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 - **Task B5 UPDATE:** `40c5d67` — add date range validation when editing excursions
 - **Task B5 UPDATE:** `8b34f66` — display vacation details on Edit Excursion screen, now mimics Add Excursion
 - **Task B5 UPDATE:** `a1b66be` — rebuild signed APK for resubmission
-- **Task F UPDATE:** `1111111` — update README with second submission context and new APK build info
+- **Task F UPDATE:** `1c7af32` — update README with second submission context and new APK build info
 
 ## Task-to-Commit Breakdown:
 - **Task B1a:** `ff04c5b` — add vacation entry functionality
