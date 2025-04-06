@@ -3,7 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:paddingTop="32dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
 
     <EditText
         android:id="@+id/excursion_title_edittext"
