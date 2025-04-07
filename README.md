@@ -27,7 +27,11 @@ If you need additional support, please navigate to the course page and reach out
 Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
 
 ## THIRD SUBMISSION:
-- **Task B5 UPDATE:** `1111111` — add padding and top margin to excursion edit screens
+- **Task B5 UPDATE:** `69f04b3` — add padding and top margin to excursion edit screens
+- **Task B5 UPDATE:** `1111111` — rebuild signed APK for resubmission
+- **Task F UPDATE:** `2222222` — update README with second submission context and new APK build info
+
+
 
 ## SECOND SUBMISSION:
 - **Task B5 UPDATE:** `40c5d67` — add date range validation when editing excursions
